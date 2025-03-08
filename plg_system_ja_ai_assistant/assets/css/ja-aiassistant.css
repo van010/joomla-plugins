@@ -1,0 +1,579 @@
+:root {
+  --jai-bg: #fff;
+  --jai-border: #B8C9E0;
+  --jai-border-hover: #16a34a;
+  --text-color: #495057;
+  --jai-input-text: #475569;
+
+  --jai-base-1: #f1f5f9;
+  --jai-input-bg: #fff;
+  
+  --trans-base: all 0.35s ease;
+
+  /* Colors */
+  --jai-green: #457d54;
+  --jai-red: #c52827;
+  --jai-blue: #2a69b8;
+}
+
+:root[data-color-scheme="dark"] {
+  --jai-bg: #0F151D;
+  --jai-border: rgba(255,255,255,0.1);
+  --text-color: #fff;
+  --jai-input-text: #fff;
+
+  --jai-base-1: rgba(255,255,255,0.1);
+  --jai-input-bg: rgba(0,0,0,0.4);
+}
+
+/* Form Elements
+------------------------------------ */
+.btn-prompt {
+  background: var(--jai-bg);
+  border-radius: 0.25rem;
+  border: 1px solid var(--jai-border);
+  color: var(--text-color);
+  align-items: center;
+  font-size: 14px;
+  display: inline-flex;
+  gap: 0.375rem;
+  padding: .375rem .75rem;
+  position: absolute;
+  bottom: calc(100% + 6px);
+  right: 0;
+  transition: var(--trans-base);
+}
+
+.btn-prompt:hover,
+.btn-prompt:focus,
+.btn-prompt:active {
+  border: 1px solid var(--jai-border-hover);
+  box-shadow: 0 0 3px rgba(0,0,0,0.1);
+}
+
+.btn-prompt i {
+  color: #457D54;
+  /* animation: blink 2s ease infinite; */
+}
+
+.btn-prompt span {
+  font-weight: 500;
+}
+
+.btn-prompt-show {
+  display: inline-flex;
+}
+
+.btn-prompt-hide {
+  display: none;
+}
+
+div.ai-prompt-show {
+  display: inline;
+}
+
+div.ai-prompt-show ul li {
+  color: darkblue;
+}
+
+div.ai-prompt-hide {
+  display: none;
+}
+
+ul.action-list {
+}
+
+ul.edit-selection {
+}
+
+.ai-editor-wrap {
+  display: none;
+  position: absolute;
+  z-index: 200;
+}
+
+.ai-prompt-wrap {
+  background: var(--jai-bg);
+  border: 1px solid var(--jai-border);
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.ai-prompt-wrap .ai-modal-close {
+  display: none;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+div.jaaiassistant-app-wrap {
+	position: absolute;
+  z-index: 200;
+  padding-top: 0.5rem;
+}
+
+div.ai-response {
+	background-color: var(--jai-bg);
+	border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border: 2px solid var(--jai-green);
+  z-index: 999;
+  font-family: Arial, sans-serif;
+	max-width: 100%;
+	word-wrap: break-word;
+	overflow: auto;
+	resize: both;
+  width: 500px;
+}
+
+div.after-response {
+  position: absolute;
+  right: 0;
+  z-index: 9999;
+}
+
+div.after-response ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.user-input {
+  position: relative;
+}
+
+/* Prompt */
+.ai-ask-search {
+  background: rgba(0,0,0,0.1);
+  border-radius: 0.25rem 0.25rem 0 0;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.ai-ask-search .user-input textarea {
+  background: url(../images/ask-ai-ico.svg) no-repeat 16px 15px var(--jai-input-bg);
+  background-size: 16px;
+  border: 1px solid var(--jai-border);
+  border-radius: 0.25rem;
+  color: var(--jai-input-text);
+  font-size: 14px;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  width: 100%;
+  display: block;
+}
+
+.ai-ask-search .user-input textarea:hover,
+.ai-ask-search .user-input textarea:focus {
+  border: 1px solid var(--jai-border-hover);
+  outline: none;
+}
+
+li[action="change_tones"], li[action="change_langs"]{
+  display: flex;
+}
+
+li[action="change_tones"] ul, li[action="change_langs"] ul {
+  background-color: var(--jai-bg);
+  border: 2px solid var(--jai-border);
+  border-radius: .25rem;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  list-style: none;
+  padding-left: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  min-width: 170px;
+  z-index: 2;
+}
+
+.ai-ask-search .user-input span {
+  pointer-events: none;
+  position: absolute;
+  top: 16px;
+  left: 2.5rem;
+  font-size: .875rem;
+  opacity: .5;
+}
+
+
+/* Prompt */
+.ai-editor-wrap div.ai-prompt {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: .5rem;
+  height: auto;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.ai-editor-wrap .action-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  flex: 0 0 50%;
+}
+
+.action-list li {
+  font-size: 14px;
+}
+
+.action-list li:not(.text-preview) {
+  background: url(../images/prompt-ico.svg) no-repeat 8px 10px;
+  background-size: 12px;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem 0.25rem 1.5rem;
+  position: relative;
+}
+
+.action-list li:hover:not(.text-preview) {
+  background-color: var(--jai-base-1);
+  cursor: pointer;
+}
+
+.action-list li.text-preview {
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 12px;
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+  user-select: none;
+}
+
+.action-list li.text-preview::after {
+  background: var(--jai-border);
+  height: 1px;
+  content: "";
+  display: block;
+  flex: 1;
+}
+
+.action-list li.text-preview ul {
+  display: none;
+}
+
+.action-list .separate {
+  margin: 0;
+}
+
+.action-list .do-action {
+  padding: 8px 15px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.action-list .do-action:hover {
+  background-color: #e0e0e0;
+}
+
+/* Action After Response */
+.action-after-response,
+.action-in-editor {
+  gap: 0.375rem;
+  margin: 0.5rem 0 0;
+}
+
+.action-after-response li.action-replace,
+.action-after-response li.action-try-again,
+.action-after-response li.action-discard,
+.action-in-editor li.action-replace,
+.action-in-editor li.action-try-again,
+.action-in-editor li.action-discard,
+.action-in-editor li.action-continue,
+.action-in-editor li.action-insert {
+  background: none;
+  padding: .375rem .75rem;
+  overflow: hidden;
+  margin-bottom: 0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.action-after-response li.action-replace:hover,
+.action-after-response li.action-try-again:hover,
+.action-after-response li.action-discard:hover,
+.action-in-editor li.action-replace:hover,
+.action-in-editor li.action-try-again:hover,
+.action-in-editor li.action-discard:hover,
+.action-in-editor li.action-continue:hover,
+.action-in-editor li.action-insert:hover  {
+  background-color: #001b4c;
+}
+
+.action-after-response li.action-replace,
+.action-in-editor li.action-replace,
+.action-in-editor li.action-continue,
+.action-in-editor li.action-insert {
+  background: var(--jai-green);
+}
+
+.action-after-response li.action-try-again,
+.action-in-editor  li.action-try-again {
+  background: var(--jai-blue);
+}
+
+.action-after-response li.action-discard,
+.action-in-editor li.action-discard {
+  background: var(--jai-red);
+}
+
+.action-after-response li:before,
+.action-in-editor li:before {
+  content: "";
+  background: url(../images/ai-check.svg) no-repeat center;
+  text-align: center;
+  margin-inline-end: 0.5rem;
+  color: #fff;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+}
+
+.action-after-response li.action-try-again:before,
+.action-in-editor li.action-try-again:before {
+  background-image: url(../images/ai-spinners.svg);
+}
+
+.action-after-response li.action-discard:before,
+.action-in-editor li.action-discard:before  {
+  background-image: url(../images/ai-discard.svg);
+}
+
+.action-in-editor li.action-insert:before {
+  background-image: url(../images/ai-long-down.svg);
+}
+
+.action-in-editor li.action-continue:before {
+  background-image: url(../images/ai-continue.svg);
+}
+
+/* Style for the action list */
+.action-in-editor {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.action-in-editor li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.action-try-again {
+  /* all: initial; */
+  background-color: #ffc107;
+  color: #333;
+}
+
+.action-discard {
+  background-color: #dc3545;
+  color: #333;
+}
+
+
+/* style for discard action */
+div.discard-action {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.discard-action p {
+  margin-bottom: 10px;
+}
+
+.discard-action div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-discard,
+.btn-cancel {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #eee;
+  transition: background-color 0.3s ease;
+}
+
+.btn-discard:hover,
+.btn-cancel:hover {
+  background-color: #e1e1e1;
+}
+/* end style for discard action */
+
+/*start style for frame overlay*/
+div#ai-frame-overlay {
+}
+
+div#ai-frame-overlay.overlay-show {
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #afafaf;
+  opacity: 0.65;
+}
+
+div#ai-frame-overlay.overlay-hide {
+  display: none;
+}
+
+/* end style for frame overlay */
+
+/* style hint */
+.hint {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+  padding: 5px 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  width: calc(100% - 20px);
+}
+
+.words-counting {
+  font-size: 10px;
+  font-weight: bold;
+  opacity: 0.6;
+  position: absolute;
+  right: 3px;
+  top: 11px;
+}
+
+#waiting-text {
+  opacity: 0.75;
+  /*display: none;*/
+  margin-bottom: 0;
+}
+
+.alert-api {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+  z-index: 999; /* Ensure it's on top of other content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.alert-api-container {
+  background-color: var(--jai-bg);
+  padding: 15px 30px 15px 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 60%;
+}
+
+/* The close button */
+.closebtn {
+  background: #fff;
+  border-radius: 50%;
+  color: #333;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+/* Apply the blink animation to the dots span */
+.dots {
+  animation: blink 1s cubic-bezier(0.5, 0, 0.5, 0.5) infinite;
+}
+
+/* ANIMATIONS
+--------------------------------------------- */
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes swinging {
+  0% {
+    margin-top: -2px;
+    margin-bottom: auto;
+  }
+
+  25% {
+    margin-top: auto;
+    margin-bottom: -2px;
+  }
+
+  50% {
+    margin-top: -2px;
+    margin-bottom: auto;
+  }
+
+  75% {
+    margin-bottom: -2px;
+    margin-top: auto;
+  }
+
+  100% {
+    margin-bottom: 0;
+  }
+}

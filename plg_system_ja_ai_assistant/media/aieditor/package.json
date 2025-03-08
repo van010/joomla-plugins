@@ -1,0 +1,26 @@
+{
+  "name": "aieditor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode=development -w",
+    "build": "webpack --mode=production"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^3.4.3"
+  },
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "mini-css-extract-plugin": "^2.7.6",
+    "naive-ui": "^2.36.0",
+    "sass": "^1.69.7",
+    "sass-loader": "^13.3.3",
+    "vfonts": "^0.0.3",
+    "vue-loader": "^17.4.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<!--root category to generate thumbnail-->
+	<fieldset name="base">
+		<field 
+			name="contentcategories" 
+			type="contentcategories" 
+			label="COM_JAMEGAFILTER_ROOT_CATEGORY" 
+		/>
+		<field
+			name="include_root"
+			type="radio"
+			label="COM_JAMEGAFILTER_INCLUDE_ROOT"
+			description="COM_JAMEGAFILTER_INCLUDE_ROOT_DESC"
+			class="btn-group btn-group-yesno"
+			default="1"
+			>
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field
+			name="subcat"
+			type="list"
+			label="COM_JAMEGAFILTER_SUBCAT"
+			description="COM_JAMEGAFILTER_SUBCAT_DESC"
+			default="-1"
+			>
+			<option value="0">JNONE</option>
+			<option value="-1">JALL</option>
+			<option value="1">J1</option>
+			<option value="2">J2</option>
+			<option value="3">J3</option>
+			<option value="4">J4</option>
+			<option value="5">J5</option>
+			<option value="6">J6</option>
+			<option value="7">J7</option>
+			<option value="8">J8</option>
+			<option value="9">J9</option>
+			<option value="10">J10</option>
+		</field>
+
+		<field
+			name="generate_thumb"
+			type="radio"
+			label="COM_JAMEGAFILTER_GENERATE_THUMB"
+			description="COM_JAMEGAFILTER_GENERATE_THUMB_DESC"
+			class="btn-group btn-group-yesno"
+			default="0"
+			>
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+
+		<field name="thumb_width"
+			type="text"
+			label="COM_JAMEGAFILTER_THUMB_WIDTH"
+			description="COM_JAMEGAFILTER_THUMB_WIDTH_DESC"
+			default="300"
+			showon="generate_thumb:1" />
+
+		<field name="thumb_height"
+			type="text"
+			label="COM_JAMEGAFILTER_THUMB_HEIGHT"
+			description="COM_JAMEGAFILTER_THUMB_HEIGHT_DESC"
+			default="300"
+			showon="generate_thumb:1" />
+	</fieldset>
+
+	<!--filter config-->
+	<fieldset name="filterfields">
+		<field 
+			name="filterfields" 
+			type="filterfields"  
+		/>
+	</fieldset>
+</form>

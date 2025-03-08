@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" version="3.9" group="system" method="upgrade">
+    <name>PLG_SYSTEM_JAAIASSISTANT</name>
+    <author>Joomlart</author>
+    <creationDate>May 17th, 2024</creationDate>
+    <copyright>(C) 2005 Open Source Matters, Inc.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>admin@joomlart.com</authorEmail>
+    <authorUrl>joomlart.com</authorUrl>
+    <version>1.0.0</version>
+    <namespace path="src">Joomla\Plugin\System\JAAIAssistant</namespace>
+    <description>
+		<![CDATA[
+		<div style='font-weight:normal; text-align: left;'>
+			<span style="color: #008000;">
+				<strong>JA AI Assistant Joomla extension</strong>
+			</span>
+			<br />
+			<p>A powerful Joomla extension that enhances your content creation process. Integrated into the Joomla editor, it leverages advanced <strong>OpenAI models</strong> to help you generate, refine, and optimize content effortlessly.</p>
+			<p><strong>Core Features:</strong></p>
+			<ul>
+				<li>Create high-quality content with multiple GPT models</li>
+				<li>Improve existing content with AI-driven suggestions</li>
+				<li>Automatically enhance SEO with relevant metadata.</li>
+				<li>Spelling and Grammar Check: Ensure error-free content.</li>
+				<li>Writing Improvement: Enhance clarity and engagement.</li>
+				<li>Tone Adjustment: Adjust content tone for different contexts.</li>
+				<li>Support editor: tinymce, WYSIWYG</li>
+				<li>Support generate multitask for content in administrator & frontend editor</li>
+			</ul>
+
+			<p><strong>Set up:</strong></p>
+			<ol>
+				<li>Register API key to access the OpenAI API: Sign up for a OpenAI API Key <a target="_blank" href="https://openai.com/pricing">HERE</a></li>
+				<li>Paste the API key to the plugin configuration</li>
+			</ol>
+
+			<p><strong>Support:</strong></p>
+			<ul>
+				<li><a target="_blank" href="https://www.joomlart.com/documentation/joomla-plugins/ja-ai-assistant">Support Forum</a></li>
+				<li><a target="_blank" href="https://www.joomlart.com/forums/t/ja-ai-assistant">Documentation</a></li>
+			</ul>
+		</div>
+		]]>
+	</description>
+    <files>
+        <folder plugin="jaaiassistant">services</folder>
+        <folder>language</folder>
+        <folder>assets</folder>
+        <folder>media</folder>
+        <folder>src</folder>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_system_jaaiassistant.ini</language>
+        <language tag="en-GB">language/en-GB/plg_system_jaaiassistant.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="config_basic" label="PLG_SYSTEM_JAAIASSISTANT_CONFIG_OPTIONS">
+                <field name="communication" type="text" default="English" label="PLG_SYSTEM_JAAIASSISTANT_LANGUAGES_COMMUNICATION"/>
+                <field
+					name="languages"
+					type="subform"
+					label="PLG_SYSTEM_JAAIASSISTANT_LANGUAGES_LABEL"
+					layout="joomla.form.field.subform.repeatable-table"
+					icon="list"
+					multiple="true"
+					>
+					<form hidden="true" name="list_language_modal" repeat="true">
+						<field
+							name="value"
+							type="text"
+							label="PLG_SYSTEM_JAAIASSISTANT_LANGUAGES_VALUE_LABEL"
+						/>
+					</form>
+				</field>
+                <field name="tones" type="subform" label="PLG_SYSTEM_JAAIASSISTANT_TONES_LABEL"
+                       layout="joomla.form.field.subform.repeatable-table" icon="list" multiple="true">
+                    <form hidden="true" name="list_templates_mode">
+                        <field name="value" type="text" label="PLG_SYSTEM_JAAIASSISTANT_TONE_VALUES_LABEL"/>
+                    </form>
+                </field>
+            </fieldset>
+			<fieldset name="basic">
+				<field
+					name="api_key"
+					type="text"
+                    hint="7dec52cb-ec95-41f9-a673-aadc743670b7"
+                    required="true"
+					label="PLG_SYSTEM_JAAIASSISTANT_API_KEY"
+				/>
+                <field name="models" type="list" default="gpt-4o" label="PLG_SYSTEM_JAAIASSISTANT_API_MODELS_LABEL">
+                    <option value="gpt-4o">GPT4_O</option>
+                    <!-- <option value="gpt-4o-2024-05-13">GPT4_O_2024_05_13</option> -->
+                    <option value="gpt-4-turbo-preview">GPT4_TURBO</option>
+                    <option value="gpt-4-vision-preview">GPT4_VISION</option>
+                    <option value="gpt-4-32k">GPT4_32K</option>
+                    <option value="gpt-3.5-turbo">GPT_35_TURBO</option>
+                    <option value="gpt-3.5-turbo-16k">GPT_35_TURBO_16K</option>
+                </field>
+			</fieldset>
+		</fields>
+    </config>
+</extension>

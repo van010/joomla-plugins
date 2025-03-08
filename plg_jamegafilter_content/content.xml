@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="jamegafilter" method="upgrade">
+	<name>JA Megafilter - Joomla extra fields plugin</name>
+	<author>Joomlart</author>
+	<creationDate>May 7th,2024</creationDate>
+	<copyright>Copyright (C), J.O.O.M Solutions Co., Ltd. All Rights Reserved.</copyright>
+	<license>license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<authorEmail>webmaster@joomlart.com</authorEmail>
+	<authorUrl>www.joomla.org</authorUrl>
+	<version>1.2.1</version>
+	<description>This plugin is used to indexing data of Joomla Content Extra Fields</description>
+	<updateservers>
+		<server type="extension" priority="2" name="JA Megafilter Joomla extra fields plugin">http://update.joomlart.com/service/tracking/j31/plg_jamegafilter_content.xml</server>
+	</updateservers>
+	<files>
+		<filename plugin="content">content.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<filename>cacheData.php</filename>
+		<folder>tmpl</folder>
+		<folder>assets</folder>
+		<folder>forms</folder>
+		<folder>fields</folder>
+		<folder>layouts</folder>
+	</files>
+	
+	<languages>
+		<language tag="en-GB">en-GB.plg_jamegafilter_content.ini</language>
+		<language tag="en-GB">en-GB.plg_jamegafilter_content.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="rating-option"
+					   type="list" default="com_content"
+					   label="COM_JAMEGAFILTER_RATING_OPTION" description="COM_JAMEGAFILTER_RATING_OPTION_DESC">
+					<option value="com_content">RATING_OPTION_COM_CONTENT</option>
+					<option value="com_komento">RATING_OPTION_COM_KOMENTO</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+
+	<params>
+	</params>
+	<scriptfile>script.php</scriptfile>
+	<config>
+		<fields name="params">
+		</fields>
+	</config>
+
+</extension>
